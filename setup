@@ -18,3 +18,7 @@ ala_dir="$HOME/.config/alacritty"
 ln -sf "$PWD/alacritty/alacritty.yml" "$ala_dir/alacritty.yml"
 ls -la $ala_dir/alacritty.yml
 
+echo Configuring TMUX
+ln -sf "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
+ls -la ~/.tmux.conf
+
