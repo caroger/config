@@ -104,23 +104,23 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: Hack Nerd Font Mono
+    family: MesloLGLDZ Nerd Font Mono
     style: Regular
 
   # Bold font face
-  # bold:
-  #   family: SauceCodePro Nerd Font
-  #   style: Bold
+  bold:
+    family: MesloLGLDZ Nerd Font Mono
+    style: Bold
 
   # Italic font face
   italic:
-    family: Hack Nerd Font Mono
+    family: MesloLGLDZ Nerd Font Mono
     style: Italic
 
   # Bold italic font face
-  # bold_italic:
-  #   family: SauceCodePro
-  #   style: Bold Italic
+  bold_italic:
+    family: MesloLGLDZ Nerd Font Mono
+    style: Bold Italic
 
   # Point size
   size: 12.0
