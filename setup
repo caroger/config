@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if [ -z "$(which vim)" -o -z "$(which vimtutor)" ]; then
+    echo Need to install full vim.
+    exit 1
+fi
+
+echo Configuring Vim
+
+ln -sf "$PWD/vim/vimrc" "$HOME/.vimrc"
+ls -la ~/.vimrc
+
+
+echo Configuring alacritty
+ala_dir="$HOME/.config/alacritty"
+[ ! -d "$ala_dir" ] && mkdir -p "$ala_dir"
+
+ln -sf "$PWD/alacritty/alacritty.yml" "$ala_dir/alacritty.yml"
+ls -la $ala_dir/alacritty.yml
+
