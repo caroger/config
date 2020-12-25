@@ -113,8 +113,6 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
     Plug 'kien/ctrlp.vim'
     Plug 'chrisbra/Colorizer'
 
-    Plug 'itchyny/lightline.vim'
-    Plug 'mengelbrecht/lightline-bufferline'
     Plug 'cespare/vim-toml'
     Plug 'pangloss/vim-javascript'
     Plug 'airblade/vim-gitgutter'
@@ -133,24 +131,14 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 else
   autocmd vimleavepre *.go !gofmt -w % " backup if fatih fails
 endif
+" Status Line
+set laststatus=2
+set statusline=
+set statusline+=%m\ %F\ %y\ %{&fileencoding?&fileencoding:&encoding}\ %=%(C:%c\ L:%l\ %P%)
+set cmdheight=1
+hi StatusLineNC term=none cterm=none gui=none
+" hi StatusLine term=none ctermfg=LightGray cterm=nocombine
 
-"== lightline
-let g:lightline = {
-      \ 'colorscheme': 'PaperColor light',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'tabline': {
-      \   'left': [ ['buffers'] ],
-      \   'right': [ ['close'] ]
-      \ },
-      \ 'component_expand': {
-      \   'buffers': 'lightline#bufferline#buffers'
-      \ },
-      \ 'component_type': {
-      \   'buffers': 'tabsel'
-      \ }
-      \ }
 " better command-line completion
 set wildmenu
 " Automatically deletes all trailing whitespace and newlines at end of file on save.

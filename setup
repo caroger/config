@@ -10,7 +10,6 @@ echo Configuring Vim
 ln -sf "$PWD/vim/vimrc" "$HOME/.vimrc"
 ls -la ~/.vimrc
 
-
 echo Configuring alacritty
 ala_dir="$HOME/.config/alacritty"
 [ ! -d "$ala_dir" ] && mkdir -p "$ala_dir"
@@ -21,4 +20,3 @@ ls -la $ala_dir/alacritty.yml
 echo Configuring TMUX
 ln -sf "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
 ls -la ~/.tmux.conf
-
