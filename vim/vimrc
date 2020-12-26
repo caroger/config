@@ -14,6 +14,8 @@ set ruler
 set showmode
 set tabstop=2
 "#######################################################################
+nnoremap <SPACE> <Nop>
+let mapleader=" "
 set softtabstop=2
 set shiftwidth=2
 set smartindent
@@ -110,7 +112,6 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'preservim/nerdtree'
-    Plug 'kien/ctrlp.vim'
     Plug 'chrisbra/Colorizer'
 
     Plug 'cespare/vim-toml'
@@ -119,8 +120,9 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
     Plug 'morhetz/gruvbox'
     Plug 'nielsmadan/harlequin'
     Plug 'tomasr/molokai'
-
+    Plug 'bling/vim-bufferline'
   call plug#end()
+  set  t_Co=256
   colorscheme gruvbox
   let g:gruvbox_transparent_bg=1
   hi Normal ctermbg=NONE " for transparent background
@@ -136,9 +138,7 @@ set laststatus=2
 set statusline=
 set statusline+=%m\ %F\ %y\ %{&fileencoding?&fileencoding:&encoding}\ %=%(C:%c\ L:%l\ %P%)
 set cmdheight=1
-hi StatusLineNC term=none cterm=none gui=none
-" hi StatusLine term=none ctermfg=LightGray cterm=nocombine
-
+hi StatusLine ctermbg=none cterm=bold ctermfg=38
 " better command-line completion
 set wildmenu
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
@@ -168,17 +168,6 @@ let g:rainbow_active = 1
 
 "== Auto completion
 let g:SuperTabDefaultCompletionType = "<c-n>"
-"== CtrlP Setting
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-let g:ctrlp_user_command = 'find %s -type f'
 "== ALE
 let g:ale_fixers = {
 \  'ruby':['rubocop'],
@@ -188,11 +177,19 @@ let g:ale_lint_on_insert_leave = 0
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
+nmap ]a :ALENextWrap<CR>
+nmap [a :ALEPreviousWrap<CR>
+nmap ]A :ALELast
+nmap [A :ALEFirst
 " -----------------------------------------------------------------------------
 " Custom Keybindings
 " -----------------------------------------------------------------------------
 " Nerd Tree Toggle
 map <F2> :NERDTreeToggle<CR>
+
+" FZF
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <C-f> :Files<CR>
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
 map <C-j> <C-w>j
