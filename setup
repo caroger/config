@@ -20,3 +20,11 @@ ls -la $ala_dir/alacritty.yml
 echo Configuring TMUX
 ln -sf "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
 ls -la ~/.tmux.conf
+
+echo Syncing .profile
+ln -sf "$PWD/.profile" "$HOME/.profile"
+ls -la ~/.profile
+
+echo Syncing personal .bashrc settings
+ln -sf "$PWD/.bash_aliases" "$HOME/.bash_aliases"
+ls -la ~/.bash_aliases
