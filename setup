@@ -21,6 +21,13 @@ echo Configuring TMUX
 ln -sf "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
 ls -la ~/.tmux.conf
 
+echo Configuring Spotifyd
+sp_dir="$HOME/.config/spotifyd"
+[ ! -d "$sp_dir" ] && mkdir -p "$sp_dir"
+
+ln -sf "$PWD/spotifyd/spotifyd.conf" "$sp_dir/spotifyd.conf"
+ls -la $sp_dir/spotifyd.conf
+
 echo Syncing .profile
 ln -sf "$PWD/.profile" "$HOME/.profile"
 ls -la ~/.profile
