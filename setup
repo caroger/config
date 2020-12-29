@@ -25,6 +25,13 @@ echo Configuring Spotifyd
 sp_dir="$HOME/.config/spotifyd"
 [ ! -d "$sp_dir" ] && mkdir -p "$sp_dir"
 
+echo Configuring ytcc
+
+yt_dir="$HOME/.config/ytcc/"
+[ ! -d "$yt_dir" ] && mkdir -p "$yt_dir"
+ln -sf "$PWD/ytcc/ytcc.conf" "$yt_dir/ytcc.conf"
+
+
 ln -sf "$PWD/spotifyd/spotifyd.conf" "$sp_dir/spotifyd.conf"
 ls -la $sp_dir/spotifyd.conf
 
