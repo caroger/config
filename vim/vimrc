@@ -35,8 +35,9 @@ set icon
 " center the cursor always on the screen
 set scrolloff=999
 " highlight search hits,  \+<cr> to clear
-set hlsearch
-set incsearch
+" set hlsearch
+" set incsearch
+set nohlsearch
 set linebreak
 map <silent> <leader><cr> :noh<cr>:redraw!<cr>
 " avoid most of the 'Hit Enter ...' messages
@@ -120,11 +121,13 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
     Plug 'morhetz/gruvbox'
     Plug 'nielsmadan/harlequin'
     Plug 'tomasr/molokai'
+    Plug 'chriskempson/base16-vim'
     Plug 'bling/vim-bufferline'
   call plug#end()
   set  t_Co=256
   colorscheme gruvbox
   let g:gruvbox_transparent_bg=1
+
   hi Normal ctermbg=NONE " for transparent background
   hi SpellBad ctermbg=red " for transparent background
   hi SpellRare ctermbg=red
@@ -177,6 +180,7 @@ let g:ale_lint_on_insert_leave = 0
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save= 0
 nmap ]a :ALENextWrap<CR>
 nmap [a :ALEPreviousWrap<CR>
 nmap ]A :ALELast
@@ -209,3 +213,6 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" Auto tab clasing after >
+inoremap ><Tab> ><Esc>?<[a-z]<CR>lyiwo</<C-r>"><Esc>O
